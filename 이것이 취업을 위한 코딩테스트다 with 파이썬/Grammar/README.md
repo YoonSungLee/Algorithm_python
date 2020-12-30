@@ -38,3 +38,26 @@ int 자료형 데이터의 개수에 따른 메모리 사용량
 |1,000,000,000|약 40MB|
 
 
+
+# 채점 환경
+파이썬 3.7로 코드를 작성할 때, 자신의 코드가 1초에 2,000만 번의 연산을 수행한다고 가정하고 문제를 풀면 실행 시간 제한에 안정적이다.<br>
+시간 제한이 1초이고, 데이터의 개수가 100만 개인 문제가 있다면 일반적으로 시간 복잡도 O(NlogN) 이내의 알고리즘을 이용하여 문제를 풀어야 한다.<br>
+실제로 N = 1,000,000일 때 Nlog2(N)은 약 20,000,000이기 때문이다.<br>
+따라서 알고리즘 문제를 풀 때는 시간 제한과 데이터의 개수를 먼저 확인한 뒤에 이 문제를 어느 정도의 시간 복잡도의 알고리즘으로 작성해야 풀 수 있을 것인지 예측할 수 있어야 한다.
+
+
+
+# 2중 for문 빠져나가기
+boolean type의 새로운 변수 삽입
+```python
+break_point = 2
+breaker = False
+for i in range(5):
+    for j in range(5):
+        if i == break_point and j == break_point:
+            breaker = True
+            break
+    if breaker = True:
+        break
+```
+Reference) 2중 for문 break [[link]](https://gomguard.tistory.com/190)
