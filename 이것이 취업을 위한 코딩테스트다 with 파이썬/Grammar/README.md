@@ -61,3 +61,24 @@ for i in range(5):
         break
 ```
 Reference) 2중 for문 break [[link]](https://gomguard.tistory.com/190)
+
+
+
+
+# iterable
+* iterable 객체: 반복 가능한 객체
+* 대표적으로 iterable한 타입: list, dict, set, str, bytes, tuple, range
+Rerence) Iterable 과 Iterator [[link]](https://wikidocs.net/16068)
+
+
+
+# string 정렬 vs list 정렬
+```python
+# string
+a = 'DBAC'
+''.join(sorted(a))
+
+# list
+b = ['D', 'B', 'A', 'C']
+b.sort()
+```
