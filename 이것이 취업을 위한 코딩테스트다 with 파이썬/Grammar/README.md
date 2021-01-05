@@ -88,3 +88,40 @@ b.sort()
 # 지도를 리스트로 표현할 때
 (1, 1)부터 시작하고 0의 index를 갖는 데이터들의 활용도가 없을 때(예: 벽으로 막혀져 있다) (0, 0)부터 제어하는 것보단 다음과 같은 방법이 직관적일 수 있다.<br>
 가로 및 세로 크기를 1씩 늘린 list를 생성 후 (1, 1)부터 제어하는 방식을 사용한다.
+
+
+
+# deepcopy
+* 변수는 객체를 가리킨다.
+```python
+# 컴퓨터 메모리에 10이라는 값이 저장되고 num은 10이 저장된 메모리의 위치를 가리킨다.
+# 10이라는 정수형 객체를 num이라는 변수가 가리키고 있는 것이다.
+
+num = 10
+```
+* mutable: 값이 변한다.
+* immutable: 값이 변하지 않는다.
+
+|class|설명|구분|
+|---|---|---|
+|list|mutable한 순서가 있는 객체 집합|mutable|
+|set|mutable한 순서가 없는 고유한 객체 집합|mutable|
+|dict|key와 value가 맵핑된 객체, 순서 없음|mutable|
+|bool|참, 거짓|immutable|
+|int|정수|immutable|
+|float|실수|immutable|
+|tuple|immutable한 순서가 있는 객체 집합|immutable|
+|str|문자열|immutable|
+
+mutable한 변수를 독립적으로 사용하기 위해서는 얕은 복사(copy)가 아닌 깊은 복사(deepcopy)를 사용해야 한다.
+```python
+import copy
+test = [1,2,3]
+same_test = copy.copy(test) # swallow copy
+differ_test = copy.deepcopy(test)   # deep copy
+
+warn_test = test[:] # 해당 경우도 deep copy에 해당하지만, list 안에 mutable한 객체가 존재할 경우 문제가 될 수 있다.
+
+```
+Reference) 12. 얕은 복사(shallow copy)와 깊은 복사(deep copy) [[link]](https://suwoni-codelab.com/python%20%EA%B8%B0%EB%B3%B8/2018/03/02/Python-Basic-copy/) [[link]](https://wikidocs.net/16038) <br>
+Reference) [Python 변수] mutable과 immutable의 차이 [[link]](https://ledgku.tistory.com/54)
