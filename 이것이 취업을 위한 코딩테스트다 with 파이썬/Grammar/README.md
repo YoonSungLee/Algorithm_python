@@ -13,18 +13,44 @@ for x in data:
 ```
 
 # 특정 조건을 가진 정렬
+## sort()
+* 리스트에서 제공해주는 메서드
+* 기존 리스트를 변형 O, return값 X
+```python
+# 첫 번째 값에서 오름차순 --> 두 번째 값에서 내림차순
+target = [[1, 2], [3, 1], [2, 6], [4, 5], [3, 3]]
+target.sort(key=lambda x: (x[0], -x[1]))
+```
+
+## sorted()
+* 내장함수
+* sorted(iterable type, key, reverse)
+* 기존 iterable type을 변형 X, return값 O
+```python
+# 첫 번째 값에서 오름차순 --> 두 번째 값에서 내림차순
+target = {
+    1: [1, 2],
+    3: [3, 1],
+    2: [2, 6],
+    4: [4, 5],
+    5: [3, 3]
+}
+
+a = sorted(target.items(), key=lambda x:(x[1][0], -x[1][1]))
+```
 ```python
 student_tuples = [
     ('john', 'A', 15),
     ('jane', 'B', 12),
     ('dave', 'B', 10),
 ]
-sorted(student_tuples, key=lambda student: student[2])   # sort by age
+student_tuples = sorted(student_tuples, key=lambda student: student[2])   # sort by age
 
 
 # return: [('dave', 'B', 10), ('jane', 'B', 12), ('john', 'A', 15)]
 ```
-Reference) 정렬 HOW TO [[link]](https://docs.python.org/ko/3/howto/sorting.html)
+Reference) 정렬 HOW TO [[link]](https://docs.python.org/ko/3/howto/sorting.html) <br>
+Reference) Python 리스트, 딕셔너리 sort(), sorted() 사용하기 [[link]](https://brownbears.tistory.com/484)
 
 
 
