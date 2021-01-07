@@ -94,6 +94,7 @@ Reference) 2중 for문 break [[link]](https://gomguard.tistory.com/190)
 # iterable
 * iterable 객체: 반복 가능한 객체
 * 대표적으로 iterable한 타입: list, dict, set, str, bytes, tuple, range
+
 Rerence) Iterable 과 Iterator [[link]](https://wikidocs.net/16068)
 
 
@@ -118,7 +119,7 @@ b.sort()
 
 
 # deepcopy
-* 변수는 객체를 가리킨다.
+* '변수'는 객체를 가리킨다.
 ```python
 # 컴퓨터 메모리에 10이라는 값이 저장되고 num은 10이 저장된 메모리의 위치를 가리킨다.
 # 10이라는 정수형 객체를 num이라는 변수가 가리키고 있는 것이다.
@@ -139,7 +140,9 @@ num = 10
 |tuple|immutable한 순서가 있는 객체 집합|immutable|
 |str|문자열|immutable|
 
-mutable한 변수를 독립적으로 사용하기 위해서는 얕은 복사(copy)가 아닌 깊은 복사(deepcopy)를 사용해야 한다.
+* mutable한 변수를 독립적으로 사용하기 위해서는 얕은 복사(copy)가 아닌 깊은 복사(deepcopy)를 사용해야 한다.
+* 하지만 deepcopy는 공간 복잡도를 많이 차지하기 때문에 신중히 고려해야 한다.
+
 ```python
 import copy
 test = [1,2,3]
