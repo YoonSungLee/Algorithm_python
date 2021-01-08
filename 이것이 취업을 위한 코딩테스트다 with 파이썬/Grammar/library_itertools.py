@@ -23,6 +23,7 @@ print(result)
 
 
 # product(중복 순열)
+# 서로 다른 n개에서 r개를 중복을 허락하여 뽑은 뒤 일렬로 나열하는 경우의 수
 # 리스트와 같은 iterable 객체에서 r개의 데이터를 뽑아 일렬로 나열하는 모든 경우를 계산
 # 원소를 중복하여 뽑는다.
 # product 객체를 초기화 할 때에는 뽑고자 하는 데이터의 수를 repeat 속성으로 넣어준다.
@@ -37,6 +38,7 @@ print(result)
 
 
 # combinations_with_replacement(중복 조합)
+# 서로 다른 n개에서 r개를 중복을 허락하여 뽑는 경우의 수
 # 리스트와 같은 iterable 객체에서 r개의 데이터를 뽑아 순서를 고려하지 않고 나열하는 모든 경우를 계산
 # 원소를 중복해서 뽑는다.
 # combinations_with_replacement는 클래스이므로 객체 초기화 이후에는 리스트 자료형으로 변환하여 사용
