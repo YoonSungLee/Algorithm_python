@@ -27,58 +27,51 @@
 # 70 20 30 40
 # 50 20 100 10
 
+from collections import deque
 import copy
-
-def dfs(x, y, before_pop):
-    global n, l, r, populations
-    if x < 0 or x >= n or y < 0 or y >= n:
-        return None
-    if visited[x][y] == True:
-        return None
-    current_pop = all_map[x][y]
-    diff = abs(before_pop - current_pop)
-    if diff < l or diff > r:
-        return None
-    visited[x][y] = True
-    union_city_list.append([x, y])
-    populations += current_pop
-    dfs(x - 1, y, current_pop)
-    dfs(x + 1, y, current_pop)
-    dfs(x, y - 1, current_pop)
-    dfs(x, y + 1, current_pop)
-
 
 n, l, r = map(int, input().split())
 all_map = []
 for _ in range(n):
     all_map.append(list(map(int, input().split())))
 
-cnt = 0
+count = 0
+dx = [1, -1, 0, 0]
+dy = [0, 0, 1, -1]
+
 while True:
     after_map = copy.deepcopy(all_map)
     visited = [[False] * n for _ in range(n)]
-
     for i in range(n):
         for j in range(n):
-            if visited[i][j] == True:
-                continue
-            else:
+            if visited[i][j] == False:
                 visited[i][j] = True
+                queue = deque()
+                population = all_map[i][j]
+                queue.append([i, j, all_map[i][j]])
                 union_city_list = [[i, j]]
-                pop = all_map[i][j]
-                populations = pop
-                dfs(i - 1, j, pop)
-                dfs(i + 1, j, pop)
-                dfs(i, j - 1, pop)
-                dfs(i, j + 1, pop)
-                mean_pop = int(populations / len(union_city_list))
+                while queue:
+                    x, y, before_pop = queue.popleft()
+                    for idx in range(4):
+                        nx = x + dx[idx]
+                        ny = y + dy[idx]
+                        if nx < 0 or nx >= n or ny < 0 or ny >=n:
+                            continue
+                        if visited[nx][ny] == True:
+                            continue
+                        current_pop = all_map[nx][ny]
+                        if l <= abs(before_pop - current_pop) <= r:
+                            population += current_pop
+                            union_city_list.append([nx, ny])
+                            queue.append([nx, ny, current_pop])
+                            visited[nx][ny] = True
+                mean_pop = int(population / len(union_city_list))
                 for x, y in union_city_list:
                     after_map[x][y] = mean_pop
-    # 인구 이동을 마친 후
-    if after_map == all_map:    # 변화가 없으면
+    if after_map == all_map:
         break
-    else:                       # 변화가 있으면
-        cnt += 1
+    else:
+        count += 1
         all_map = after_map
 
-print(cnt)
+print(count)
