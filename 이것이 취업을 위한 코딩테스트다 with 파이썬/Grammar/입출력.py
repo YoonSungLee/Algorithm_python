@@ -12,6 +12,9 @@ n, m, k = map(int, input().split())
 import sys
 data = sys.stdin.readline().rstrip()
 
+# sys.stdin.readline()으로 입력받은 후 데이터를 쪼개어 int형으로 변환한 list를 추출할 경우
+arr = list(map(int, sys.stdin.readline().rstrip().split()))
+
 # f-string 문법
 answer = 7
 print(f'정답은 {answer}입니다.')

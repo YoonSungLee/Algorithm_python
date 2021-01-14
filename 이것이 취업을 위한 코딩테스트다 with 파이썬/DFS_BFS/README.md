@@ -195,7 +195,7 @@ dfs(graph, 1, visited)
 
 
 
-# 7. BFS(Breath First Search)
+# 7. BFS(Breadth First Search)
 * 너비 우선 탐색
 * 가까운 노드부터 탐색하는 알고리즘
 * queue 자료구조 이용
