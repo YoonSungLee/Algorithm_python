@@ -154,3 +154,18 @@ warn_test = test[:] # 해당 경우도 deep copy에 해당하지만, list 안에
 ```
 Reference) 12. 얕은 복사(shallow copy)와 깊은 복사(deep copy) [[link]](https://suwoni-codelab.com/python%20%EA%B8%B0%EB%B3%B8/2018/03/02/Python-Basic-copy/) [[link]](https://wikidocs.net/16038) <br>
 Reference) [Python 변수] mutable과 immutable의 차이 [[link]](https://ledgku.tistory.com/54)
+
+
+
+# Counter 기능
+
+```python
+import collections
+
+def solution(participant, completion):
+    answer = collections.Counter(participant) - collections.Counter(completion)
+    return list(answer.keys())[0]
+```
+
+* dictionary type은 minus 기능을 수행할 수 없다.
+* Counter는 minus 기능을 수행할 수 있도록 내부적으로 구현되어 있다.
