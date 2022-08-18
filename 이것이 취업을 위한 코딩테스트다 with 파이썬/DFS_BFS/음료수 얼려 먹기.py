@@ -6,7 +6,6 @@
 # 00000
 
 # sol(DFS)
-# 풀이 실패한 문제로 차후 복습 필요
 # N, M을 공백으로 구분하여 입력받기
 n, m = map(int, input().split())
 
@@ -29,7 +28,7 @@ def dfs(x, y):
         dfs(x, y - 1)
         dfs(x + 1, y)
         dfs(x, y + 1)
-        return True
+        return True     # 최종적인 결과는 True. 앞의 dfs문은 방문 여부를 업데이트 하기 위함
     return False
 
 # 모든 노드(위치)에 대하여 음료수 채우기
