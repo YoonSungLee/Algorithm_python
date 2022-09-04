@@ -111,7 +111,7 @@ def virus(x, y):
                 temp[nx][ny] = 2
                 virus(nx, ny)
 
-# 현재 맵에서 안전 영역으 킈기 계산하는 메서드
+# 현재 맵에서 안전 영역의 크기 계산하는 메서드
 def get_score():
     score = 0
     for i in range(n):
@@ -127,6 +127,8 @@ def dfs(count):
     if count == 3:
         for i in range(n):
             for j in range(m):
+                # temp: 벽 설치 이후 바이러스가 퍼진 이후 결과 map
+                # data: 벽 설치까지만
                 temp[i][j] = data[i][j]
         # 각 바이러스의 위치에서 전파 진행
         for i in range(n):
