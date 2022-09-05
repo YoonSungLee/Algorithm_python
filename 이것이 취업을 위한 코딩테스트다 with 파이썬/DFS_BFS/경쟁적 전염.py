@@ -14,39 +14,40 @@
 
 # 시간 제한으로 풀이 실패
 # 실질적으로 bfs를 사용하지 않은 코드
-# import copy
-#
-# def bfs(i, j, virus, target_map):
-#     for idx in range(4):
-#         nx = i + dx[idx]
-#         ny = j + dy[idx]
-#         if nx < 0 or nx >= n or ny < 0 or ny >= n:
-#             continue
-#         if target_map[nx][ny] != 0:
-#             continue
-#         target_map[nx][ny] = virus
-#     return target_map
-#
-# n, k = map(int, input().split())
-#
-# all_map = []
-# for _ in range(n):
-#     all_map.append(list(map(int, input().split())))
-#
-# s, x, y = map(int, input().split())
-#
-# dx = [1, -1, 0, 0]
-# dy = [0, 0, 1, -1]
-#
-# for _ in range(s):
-#     before_map = copy.deepcopy(all_map)
-#     for moving_virus in range(1, k+1):
-#         for i in range(n):
-#             for j in range(n):
-#                 if before_map[i][j] == moving_virus:
-#                     all_map = bfs(i, j, moving_virus, all_map)
-#
-# print(all_map[x - 1][y - 1])
+##################################################
+import copy
+
+n, k = map(int, input().split())
+all_map = []
+for _ in range(n):
+    all_map.append(list(map(int, input().split())))
+s, x, y = map(int, input().split())
+
+dx = [1, -1, 0, 0]
+dy = [0, 0, 1, -1]
+
+def move_virus(virus):
+    for i in range(n):
+        for j in range(n):
+            if before_map[i][j] == virus:
+                for idx in range(4):
+                    x = i + dx[idx]
+                    y = j + dy[idx]
+                    if x >= 0 and y >= 0 and x < n and y < n and before_map[x][y] == 0:
+                        after_map[x][y] = virus
+
+
+before_map = copy.deepcopy(all_map)
+after_map = copy.deepcopy(all_map)
+
+for _ in range(s):
+    for virus in range(1, k+1):
+        move_virus(virus)
+        before_map = copy.deepcopy(after_map)
+
+print(after_map[x-1][y-1])
+##################################################
+
 
 from collections import deque
 
