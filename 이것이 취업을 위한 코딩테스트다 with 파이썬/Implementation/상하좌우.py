@@ -45,6 +45,7 @@ dy = [-1, 1, 0, 0]
 move_types = ['L', 'R', 'U', 'D']
 
 for plan in plans:
+    # 어떤 방향인지 확인하는 코드 --> if 4번 대신 for문 사용
     for i in range(len(move_types)):
         if plan == move_types[i]:
             nx = x + dx[i]

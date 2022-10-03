@@ -4,7 +4,7 @@ data = input()
 
 # my sol
 start_time = time.time()
-pos = [int(data[1]), ord(data[0]) - 96]
+pos = [int(data[1]), ord(data[0]) - 96] # ord('a') == 97
 
 dx = [2, 2, -2, -2, 1, 1, -1, -1]
 dy = [1, -1, 1, -1, 2, -2, 2, -2]
